@@ -7,18 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0a1628;
-    --navy-mid: #122040;
-    --navy-light: #1a2e52;
+    --navy: #0d0f1a;
+    --navy-mid: #111827;
+    --navy-light: #161d2e;
+    --navy-card: #0e1525;
+    --gold-header: #6b5a1e;
+    --gold-header-light: #7d6a26;
     --gold: #c89b3c;
     --gold-light: #e8b84b;
-    --gold-pale: #f5d98a;
+    --gold-pale: #f0d080;
     --gold-dim: #7a5c1e;
-    --red: #a50044;
     --white: #ffffff;
-    --off-white: #f4f1eb;
-    --muted: rgba(255,255,255,0.55);
-    --border: rgba(200,155,60,0.25);
+    --muted: rgba(255,255,255,0.5);
+    --border: rgba(255,255,255,0.07);
+    --border-strong: rgba(255,255,255,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,12 +41,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 48px;
+    padding: 16px 4vw;
     border-bottom: 1px solid var(--border);
     background: var(--navy);
     position: sticky;
     top: 0;
     z-index: 100;
+    max-width: 100%;
   }
 
   .logo-area { display: flex; align-items: center; gap: 14px; }
@@ -140,16 +143,16 @@
   }
 
   /* ── SECTION WRAPPER ── */
-  .section { padding: 64px 48px; }
+  .section { padding: 40px 4vw; max-width: 1400px; margin: 0 auto; }
   .section-border { border-top: 1px solid var(--border); }
 
   .section-label {
-    font-size: 12px;
-    letter-spacing: 4px;
+    font-size: 11px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 40px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 24px;
   }
 
   /* ── LOCATION CARD ── */
@@ -218,15 +221,15 @@
 
   /* ── PRICING MAIN CARD ── */
   .pricing-card {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    background: var(--navy-card);
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
     overflow: hidden;
   }
 
   .pricing-card-header {
-    background: var(--gold);
-    padding: 28px 36px;
+    background: #3a3010;
+    padding: 20px 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -236,38 +239,35 @@
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--navy);
-    font-weight: 600;
-    margin-bottom: 6px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    margin-bottom: 4px;
   }
 
   .pricing-type-value {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--navy);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
 
-  .pricing-seat-info {
-    text-align: right;
-  }
+  .pricing-seat-info { text-align: right; }
 
   .seat-count {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 52px;
-    font-weight: 900;
-    color: var(--navy);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--white);
     line-height: 1;
   }
 
   .seat-label {
     font-size: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--navy);
-    opacity: 0.65;
+    color: rgba(255,255,255,0.45);
   }
 
   .pricing-body {
@@ -275,19 +275,28 @@
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     background: var(--border);
+    align-items: start;
   }
 
   .pricing-col {
-    background: var(--navy-mid);
-    padding: 36px;
+    background: var(--navy-card);
+    padding: 28px;
+  }
+
+  /* ── PAYMENT SCHEDULE ── */
+  .payment-schedule {
+    background: var(--navy-light);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 16px;
   }
 
   .pricing-col-title {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
 
   /* Big investment number */
@@ -313,16 +322,16 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 16px 0;
+    padding: 13px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 17px;
+    font-size: 15px;
   }
   .price-row:last-child { border-bottom: none; }
   .price-row-label { color: var(--muted); }
   .price-row-value {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 600;
     color: var(--white);
   }
   .price-row-value.highlight { color: var(--gold-light); }
@@ -333,50 +342,42 @@
     margin: 20px 0;
   }
 
-  /* ── PAYMENT SCHEDULE ── */
-  .payment-schedule {
-    background: var(--navy-light);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 24px;
-  }
-
   .schedule-header {
     display: grid;
-    grid-template-columns: 60px 1fr 120px 100px;
+    grid-template-columns: 40px 1fr 110px 70px;
     padding: 12px 20px;
-    background: rgba(200,155,60,0.15);
-    font-size: 13px;
+    background: rgba(255,255,255,0.05);
+    font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--gold);
     font-weight: 600;
-    gap: 16px;
+    gap: 12px;
   }
 
   .schedule-row {
     display: grid;
-    grid-template-columns: 60px 1fr 120px 100px;
-    padding: 20px 20px;
+    grid-template-columns: 40px 1fr 110px 70px;
+    padding: 16px 20px;
     border-top: 1px solid var(--border);
-    font-size: 17px;
+    font-size: 15px;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   .pay-num {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--gold);
   }
 
-  .pay-label { color: var(--muted); font-size: 17px; }
+  .pay-label { color: var(--muted); font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .pay-amount {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
     color: var(--white);
     text-align: right;
   }
@@ -384,8 +385,8 @@
   .pay-pct {
     text-align: right;
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
     color: var(--gold-pale);
   }
 
@@ -395,37 +396,35 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 4px;
     overflow: hidden;
-    margin-top: 32px;
+    margin-top: 0;
   }
 
   .stat-cell {
-    background: var(--navy-mid);
-    padding: 28px 24px;
+    background: #0b1020;
+    padding: 20px 24px;
   }
 
   .stat-label {
-    font-size: 12px;
-    letter-spacing: 3px;
+    font-size: 10px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .stat-value {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 38px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
     color: var(--gold-light);
     line-height: 1;
   }
 
   .stat-note {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--muted);
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
   /* ── BENEFITS ── */
@@ -504,13 +503,13 @@
   .control-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 
   select {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
+    background: var(--navy-light);
+    border: 1px solid var(--border-strong);
     color: var(--white);
     padding: 10px 16px;
     font-size: 13px;
     font-family: 'Barlow', sans-serif;
-    border-radius: 4px;
+    border-radius: 2px;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
@@ -524,13 +523,13 @@
   select:focus { outline: none; border-color: var(--gold); }
 
   .seats-input {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
+    background: var(--navy-light);
+    border: 1px solid var(--border-strong);
     color: var(--white);
     padding: 10px 16px;
     font-size: 13px;
     font-family: 'Barlow', sans-serif;
-    border-radius: 4px;
+    border-radius: 2px;
     width: 100px;
     text-align: center;
   }
@@ -539,15 +538,14 @@
 
   /* Seasonal note box */
   .info-box {
-    background: rgba(200,155,60,0.08);
-    border: 1px solid rgba(200,155,60,0.3);
-    border-left: 3px solid var(--gold);
-    border-radius: 4px;
-    padding: 16px 20px;
-    font-size: 15px;
+    background: transparent;
+    border: none;
+    border-left: 2px solid rgba(200,155,60,0.4);
+    padding: 10px 14px;
+    font-size: 13px;
     color: var(--muted);
     line-height: 1.6;
-    margin-top: 24px;
+    margin-top: 20px;
   }
 
   .info-box strong { color: var(--gold-light); }
@@ -704,7 +702,7 @@ function totalRow(label, valueHTML) {
 }
 
 const vatBox = `<div class="info-box"><strong>*21% VAT not included.</strong></div>`;
-const importantBox = `<div class="info-box" style="border-color:rgba(200,155,60,0.5);border-left-color:var(--gold);margin-top:12px;display:flex;gap:10px;align-items:flex-start;">
+const importantBox = `<div class="info-box" style="border-left-color:var(--gold);margin-top:12px;display:flex;gap:10px;align-items:flex-start;">
   <span style="font-size:16px;color:var(--gold);flex-shrink:0;">⚠</span>
   <span><strong style="color:var(--gold-light);">IMPORTANT:</strong> Available from Season 2027/28</span>
 </div>`;
